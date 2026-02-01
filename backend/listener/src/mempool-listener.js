@@ -86,7 +86,13 @@ function setupProviderEvents() {
 
     // Handle WebSocket errors
     provider.websocket.on('error', (error) => {
-        console.log(`\n WebSocket closed (code: ${code}`);
+        const message = error && error.message ? error.message : String(error);
+        console.error(`\n WebSocket error: ${message}`);
+    });
+
+    provider.websocket.on('close', (code, reason) => {
+        const reasonText = reason ? reason.toString() : 'no reason provided';
+        console.log(`\n WebSocket closed (code: ${code}, reason: ${reasonText})`);
         handleDisconnect();
     });
 }

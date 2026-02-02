@@ -18,7 +18,14 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "node tests/decoder.test.js",
+    "test": "npm run test:config && npm run test:constants && npm run test:decoder",
+    "test:config": "node tests/config.test.js",
+    "test:constants": "node tests/constants.test.js",
+    "test:decoder": "node tests/decoder.test.js",
+    "test:listener": "node tests/listener.test.js",
+    "test:aggregator": "node tests/pair-aggregator.test.js",
+    "test:detector": "node tests/sandwich-detector.test.js",
+    "test:websocket": "node tests/websocket-server.test.js",
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
     "lint": "eslint src/"
@@ -34,6 +41,7 @@
   "devDependencies": {
     "eslint": "^9.39.2",
     "nodemon": "^3.1.11",
-    "prettier": "^3.8.1"
+    "prettier": "^3.8.1",
+    "socket.io-client": "^4.8.3"
   }
 }

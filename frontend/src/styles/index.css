@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@theme {
+  --font-mono: "Space Mono", "JetBrains Mono", monospace;
+}
+
+body {
+  @apply bg-black text-white antialiased;
+  margin: 0;
+}
